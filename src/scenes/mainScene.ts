@@ -13,11 +13,11 @@ export default class MainScene extends Phaser.Scene {
     create() {
         this.inputHandler = new InputHandler(this);
 
-        this.add.image(400, 300, "sky");
+        this.add.image(400, 300, "sunset");
         const message = `Phaser v${Phaser.VERSION}`;
         this.add
             .text(this.cameras.main.width - 15, 15, message, {
-                color: "#000000",
+                color: "white",
                 fontSize: "24px",
             })
             .setOrigin(1, 0);
@@ -30,11 +30,11 @@ export default class MainScene extends Phaser.Scene {
         this.add.text(
             200,
             300,
-            "Switching scenes will incrmeent the score by 1"
+            "Switching scenes will increment the score by 1"
         );
         this.scoreText = this.add.text(16, 16, "Score: " + score, {
             fontSize: "32px",
-            color: "#000",
+            color: "white",
         });
     }
 

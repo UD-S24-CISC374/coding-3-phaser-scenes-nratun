@@ -13,22 +13,18 @@ export default class Scene1 extends Phaser.Scene {
     create() {
         this.inputHandler = new InputHandler(this);
 
+        this.add.image(400, 300, "waterfall");
         const message = `Phaser v${Phaser.VERSION}`;
         this.add
             .text(this.cameras.main.width - 15, 15, message, {
-                color: "#000000",
+                color: "white",
                 fontSize: "24px",
             })
             .setOrigin(1, 0);
 
-        this.add.image(400, 300, "purple");
-        this.add.text(250, 300, "Now this is scene number two", {
-            font: "25px Arial",
-            color: "red",
-        });
         this.scoreText = this.add.text(16, 16, "Score: " + score, {
             fontSize: "32px",
-            color: "#000",
+            color: "white",
         });
     }
 

@@ -13,6 +13,7 @@ export default class Scene3 extends Phaser.Scene {
     create() {
         this.inputHandler = new InputHandler(this);
 
+        this.add.image(400, 300, "houses");
         const message = `Phaser v${Phaser.VERSION}`;
         this.add
             .text(this.cameras.main.width - 15, 15, message, {
@@ -21,11 +22,6 @@ export default class Scene3 extends Phaser.Scene {
             })
             .setOrigin(1, 0);
 
-        this.add.image(400, 300, "purple");
-        this.add.text(250, 300, "And this is the last scene (four)", {
-            font: "20px Arial",
-            color: "brown",
-        });
         this.scoreText = this.add.text(16, 16, "Score: " + score, {
             fontSize: "32px",
             color: "#000",
