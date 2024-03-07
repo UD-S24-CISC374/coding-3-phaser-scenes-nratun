@@ -2,39 +2,29 @@ import Phaser from "phaser";
 import { InputHandler } from "../objects/InputHandler";
 import { updateScore, score } from "../objects/score";
 
-export default class MainScene extends Phaser.Scene {
+export default class Scene2 extends Phaser.Scene {
     inputHandler: InputHandler;
     scoreText?: Phaser.GameObjects.Text;
 
     constructor() {
-        super({ key: "MainScene" });
+        super({ key: "Scene2" });
     }
 
     create() {
         this.inputHandler = new InputHandler(this);
 
-        this.add.image(400, 300, "sunset");
+        this.add.image(400, 300, "lake");
         const message = `Phaser v${Phaser.VERSION}`;
         this.add
             .text(this.cameras.main.width - 15, 15, message, {
-                color: "white",
+                color: "orange",
                 fontSize: "24px",
             })
             .setOrigin(1, 0);
 
-        this.add.text(
-            300,
-            200,
-            "This is the first scene.\nClick the left or right\narrow key to switch scenes"
-        );
-        this.add.text(
-            200,
-            300,
-            "Switching scenes will increment the score by 1"
-        );
         this.scoreText = this.add.text(16, 16, "Score: " + score, {
             fontSize: "32px",
-            color: "white",
+            color: "orange",
         });
     }
 
@@ -42,7 +32,12 @@ export default class MainScene extends Phaser.Scene {
         if (this.inputHandler.cursors?.right.isDown) {
             updateScore();
             this.scoreText?.setText(`Score: ${score}`);
+            this.scene.start("Scene3");
+        } else if (this.inputHandler.cursors?.left.isDown) {
+            updateScore();
+            this.scoreText?.setText(`Score: ${score}`);
             this.scene.start("Scene1");
+            console.log("Got here");
         }
     }
 }
