@@ -13,6 +13,7 @@ export default class MainScene extends Phaser.Scene {
     create() {
         this.inputHandler = new InputHandler(this);
 
+        this.add.image(400, 300, "sky");
         const message = `Phaser v${Phaser.VERSION}`;
         this.add
             .text(this.cameras.main.width - 15, 15, message, {
@@ -21,7 +22,6 @@ export default class MainScene extends Phaser.Scene {
             })
             .setOrigin(1, 0);
 
-        this.add.image(400, 300, "sky");
         this.add.text(
             300,
             200,
